@@ -1,7 +1,8 @@
 class SuspectsController < ApplicationController
 
 	def index
-		@suspects = Suspect.all
+		@suspects = Suspect.select("min(id) as id, text(email) as email").group("text(email)").limit(nil).to_a
+		@total = Suspect.group(:email).count
 	end
 
 	def new
@@ -19,7 +20,8 @@ class SuspectsController < ApplicationController
 	end
 
 	def show
-		@suspect = Suspect.find(params[:id])
+		@email = Suspect.find(params[:id]).email
+		@accesses = Suspect.where(email: Suspect.find(params[:id]).email)
 	end
 
 private 
