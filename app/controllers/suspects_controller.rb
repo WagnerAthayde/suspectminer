@@ -7,12 +7,7 @@ class SuspectsController < ApplicationController
 	def new
 	end
 
-	def show
-		@suspect = Suspect.find(params[:id])
-	end
-
 	def create
-
 		suspect = Suspect.new(suspect_params)
 
 		if suspect.save
@@ -21,6 +16,10 @@ class SuspectsController < ApplicationController
 			flash[:errors] = suspect.errors.full_messages
 			redirect_to "/suspects/new"
 		end
+	end
+
+	def show
+		@suspect = Suspect.find(params[:id])
 	end
 
 private 
