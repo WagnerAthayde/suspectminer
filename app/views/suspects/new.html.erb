@@ -1,0 +1,20 @@
+<h1>Create a suspect</h1>
+<!- Valida se os campos foram preenchidos (Utilizado no desenvolvimento)->
+<% if flash[:errors] %>
+	<% flash[:errors].each do |e| %>
+		<p><%= e %></p>
+	<%end%>
+<%end%>
+
+<form action="/suspects" method="post">
+	<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+	<p>
+		<label>Email:</label>
+		<input type="text" name="suspect[email]">
+	</p>
+	<p>
+		<label>URL:</label>
+		<input type="text" name="suspect[url]">
+	</p>
+	<input type="submit" value="Create">
+</form>

@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: suspect_miner_development
+  
+test:
+  <<: *default
+  database: suspect_miner_test
+
+production:
+  <<: *default
+  database: suspect_miner_production
+  username: ubuntu
+  password: ubuntu

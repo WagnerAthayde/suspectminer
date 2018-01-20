@@ -1,0 +1,24 @@
+<h1>Suspects Miner</h1>
+<!-Displays the total suspects and list them->
+<h2>Total suspects: <%= @suspects.count %> </h2>
+
+<table>
+	<thead>
+		<tr>
+			<td>Email</td>
+			<td>Log</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @suspects.each do |suspect| %>
+		<tr>
+			<td><%= suspect.email %></td>
+			<td><a href="/suspects/<%= suspect.id %>">View</a></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<!-Just for developing reasons->
+<a href="suspects/new">New Suspect</a>
