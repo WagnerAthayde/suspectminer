@@ -2,7 +2,8 @@ class SuspectsController < ApplicationController
 
 	def index
 		@title = 'Suspect Miner'
-		@suspects = Suspect.distinct.select(:email)
+		@suspects = Suspect.distinct.select(:guid).where.not(email: nil).where.not(email: "")
+		p @suspects
 	end
 
 	def new; end
@@ -10,8 +11,6 @@ class SuspectsController < ApplicationController
 	def create
 		suspect = Suspect.new(suspect_params)
 
-		puts suspect.valid?
-		p suspect.errors
 		if suspect.save
 			redirect_to home_path
 		else
@@ -20,9 +19,9 @@ class SuspectsController < ApplicationController
 		end
 	end
 
-	def by_email
-		@email = params[:email]
-		@suspects = Suspect.where(email: @email)
+	def by_guid
+		@guid = params[:guid]
+		@suspects = Suspect.where(guid: @guid)
 	end
 
 	private 

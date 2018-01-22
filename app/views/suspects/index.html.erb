@@ -1,26 +1,20 @@
 <h1><%= @title%></h1>
-<!-Displays the total suspects and list them->
 <h2>Total suspects: <%= @suspects.count %> </h2>
 
 <table>
 	<thead>
 		<tr>
-			<td>Email</td>
+			<td>GUID</td>
 			<td>Log</td>
 		</tr>
 	</thead>
 
 	<tbody>
 		<% @suspects.each do |suspect| %>
-		<% if suspect.email? %>
 		<tr>
-			<td><%= suspect.email %></td>
-			<td><%= link_to 'View', by_email_suspects_path(email: suspect.email) %></td>
+			<td><%= suspect.guid %></td>
+			<td><%= link_to 'View', by_guid_suspects_path(guid: suspect.guid) %></td>
 		</tr>
-		<% end %>
 		<% end %>
 	</tbody>
 </table>
-
-<!-Just for developing reasons->
-<%= link_to 'New Suspect', new_suspects_path %> 

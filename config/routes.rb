@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 	
 	resource :suspects do
 		member do
-			get :by_email
+			get :by_guid
 		end
 	end
 end
