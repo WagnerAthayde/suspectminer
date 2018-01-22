@@ -3,7 +3,9 @@ class CreateSuspects < ActiveRecord::Migration[5.1]
     create_table :suspects do |t|
       t.string :email
       t.string :url
-      t.datetime :created_at
+      t.string :guid
+      t.string :title
+      t.datetime :access_at
 
       t.timestamps
     end

@@ -1,6 +1,6 @@
-<h1>Suspects Miner</h1>
+<h1><%= @title%></h1>
 <!-Displays the total suspects and list them->
-<h2>Total suspects: <%= @total.count %> </h2>
+<h2>Total suspects: <%= @suspects.count %> </h2>
 
 <table>
 	<thead>
@@ -12,13 +12,15 @@
 
 	<tbody>
 		<% @suspects.each do |suspect| %>
+		<% if suspect.email? %>
 		<tr>
 			<td><%= suspect.email %></td>
-			<td><a href="/suspects/<%= suspect.id %>">View</a></td>
+			<td><%= link_to 'View', by_email_suspects_path(email: suspect.email) %></td>
 		</tr>
+		<% end %>
 		<% end %>
 	</tbody>
 </table>
 
 <!-Just for developing reasons->
-<a href="suspects/new">New Suspect</a>
+<%= link_to 'New Suspect', new_suspects_path %> 

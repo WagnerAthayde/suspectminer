@@ -8,13 +8,13 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @accesses.each do |access| %>
+		<% @suspects.each do |access| %>
 		<tr>
 			<td><%= access.url %></td>
-			<td><%= access.created_at%></td>
+			<td><%= access.access_at %></td>
 		</tr>
 		<% end %>
 	</tbody>
 </table>
 
-<a href="/">Suspects List</a>
+<%= link_to 'Suspects List', home_path %> 

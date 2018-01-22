@@ -1,3 +1,3 @@
 class Suspect < ApplicationRecord
-	validates :email, :url, presence: true
+	validates :url, presence: true
 end

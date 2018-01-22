@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20180120065554) do
   create_table "suspects", force: :cascade do |t|
     t.string "email"
     t.string "url"
+    t.string "guid"
+    t.string "title"
+    t.datetime "access_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,31 +1,32 @@
 class SuspectsController < ApplicationController
 
 	def index
-		@suspects = Suspect.select("min(id) as id, text(email) as email").group("text(email)").limit(nil).to_a
-		@total = Suspect.group(:email).count
+		@title = 'Suspect Miner'
+		@suspects = Suspect.distinct.select(:email)
 	end
 
-	def new
-	end
+	def new; end
 
 	def create
 		suspect = Suspect.new(suspect_params)
 
+		puts suspect.valid?
+		p suspect.errors
 		if suspect.save
-			redirect_to "/"
+			redirect_to home_path
 		else
 			flash[:errors] = suspect.errors.full_messages
-			redirect_to "/suspects/new"
+			redirect_to new_suspects_path
 		end
 	end
 
-	def show
-		@email = Suspect.find(params[:id]).email
-		@accesses = Suspect.where(email: Suspect.find(params[:id]).email)
+	def by_email
+		@email = params[:email]
+		@suspects = Suspect.where(email: @email)
 	end
 
-private 
+	private 
 	def suspect_params
-		params.require(:suspect).permit(:email, :url)
+		params.require(:suspect).permit(:email, :url, :guid, :access_at, :title)
 	end
 end
