@@ -45,6 +45,6 @@ Access the address at any browser:
 ```console
 http://localhost:3000/
 ```
-Click links 'Home' 'Contato' 'Sobre' at the navbar and finally click 'Relatório de Rastremaneto' to get the user's visit tracking report.
+
 
 
