@@ -2,7 +2,7 @@
 
 Simple tool to collect and process information of interest.
 
-It uses Javascript to exchange information between client (any site embended with the Javascript library, mining.js) and server.
+It uses Javascript to exchange information between client (any site with the mining.js Javascript library embedded) and server
 
 For more information regarding the Javascript library please visit: https://github.com/WagnerAthayde/testingsite
 
