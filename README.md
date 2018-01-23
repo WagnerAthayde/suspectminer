@@ -32,7 +32,7 @@ Execute the database script
 rake db:migrate
 ```
 
-##Running the application
+## Running the application
 
 Start HTTP web server:
 
