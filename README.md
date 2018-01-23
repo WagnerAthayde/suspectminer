@@ -1,26 +1,50 @@
-# README
+# Suspect Miner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple tool to collect and process information of interest.
 
-Things you may want to cover:
+It uses Javascript to exchange information between client (any site embended with the Javascript library, mining.js) and server.
 
-* Ruby version
+For more information regarding the Javascript library please visit: https://github.com/WagnerAthayde/testingsite
 
-* System dependencies
+## Installation
 
-* Configuration
+Git clone the application:
 
-* Database creation
+```console
+git clone https://github.com/WagnerAthayde/suspectminer.git
+```
 
-* Database initialization
+Change to application directory:
 
-* How to run the test suite
+```console
+cd suspectminer
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Run the following command to install dependencies:
 
-* Deployment instructions
+```console
+bundle install
+```
 
-* ...
-# suspectsminer
-# suspectminer
+Execute the database script
+
+```console
+rake db:migrate
+```
+
+##Running the application
+
+Start HTTP web server:
+
+```console
+rails server
+```
+
+Access the address at any browser:
+
+```console
+http://localhost:3000/
+```
+Click links 'Home' 'Contato' 'Sobre' at the navbar and finally click 'Relatório de Rastremaneto' to get the user's visit tracking report.
+
+
